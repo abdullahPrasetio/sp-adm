@@ -96,16 +96,42 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         padding: EdgeInsets.fromLTRB(20, 70, 20, 30),
                         child: RaisedButton(
+                          onPressed: () async {
+                            await context.bloc<UserCubit>().signIn(
+                                emailController.text, passwordController.text);
+                            UserState state = context.bloc<UserCubit>().state;
+                            if (state is UserLoaded) {
+                              context.bloc<MerchandiseCubit>().getMerchandise();
+                              context.bloc<ProgramCubit>().getPrograms();
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return MainPage();
+                              }));
+                            } else {
+                              Get.snackbar(
+                                "",
+                                "",
+                                backgroundColor: "D9435E".toColor(),
+                                icon: Icon(MdiIcons.closeCircleOutline,
+                                    color: Colors.white),
+                                titleText: Text(
+                                  "Sign In Failed",
+                                  style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                messageText: Text(
+                                  (state as UserLoadingFailed).message,
+                                  style:
+                                      GoogleFonts.poppins(color: Colors.white),
+                                ),
+                              );
+                            }
+                          },
                           padding: EdgeInsets.fromLTRB(65, 20, 65, 20),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40.0),
                               side: BorderSide(color: Color(0xff87CEEB))),
-                          onPressed: () async {
-                            // Navigator.pushReplacement(context,
-                            //     MaterialPageRoute(builder: (context) {
-                            //   return HomePage();
-                            // }));
-                          },
                           color: Color(0xff03203F),
                           textColor: Colors.white,
                           child: Text("Login", style: TextStyle(fontSize: 18)),

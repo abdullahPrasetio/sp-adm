@@ -16,19 +16,8 @@ class _PlaylistState extends State<Playlist> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          leading: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-          backgroundColor: Colors.white,
-          title: Image.asset(
-            "assets/images/Appbar.png",
-            width: 300,
-            height: 200,
-          )),
-      body: new FutureBuilder<List>(
+    return Container(
+      child: new FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
@@ -36,84 +25,13 @@ class _PlaylistState extends State<Playlist> {
               ? new ListVideo(
                   list: snapshot.data,
                 )
-              : new CircularProgressIndicator();
+              : Container(
+                  width: 20,
+                  height: 20,
+                  child: Center(
+                    child: new CircularProgressIndicator(),
+                  ));
         },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF03203F),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white.withOpacity(.60),
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
-        onTap: (value) {
-          // Respond to item press.
-        },
-        items: [
-          BottomNavigationBarItem(
-              label: '',
-              icon: Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  height: 30,
-                  child: InkWell(
-                      child: Image.asset("assets/images/home.png"),
-                      onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return HomePage();
-                        }));
-                      }))),
-          BottomNavigationBarItem(
-              label: '',
-              icon: Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  height: 30,
-                  child: InkWell(
-                      child: Image.asset("assets/images/rp.png",
-                          fit: BoxFit.cover),
-                      onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Playlist();
-                        }));
-                      }))),
-          BottomNavigationBarItem(
-              label: '',
-              icon: Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  height: 30,
-                  child: InkWell(
-                      child: Image.asset("assets/images/hand.png",
-                          fit: BoxFit.cover),
-                      onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return InputClaim();
-                        }));
-                      }))),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Container(
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                height: 30,
-                child:
-                    Image.asset("assets/images/coment.png", fit: BoxFit.cover)),
-          ),
-          BottomNavigationBarItem(
-              label: '',
-              icon: Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  height: 30,
-                  child: InkWell(
-                      child: Image.asset("assets/images/shoping_bag.png",
-                          fit: BoxFit.cover),
-                      onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return MarchandisePage();
-                        }));
-                      }))),
-        ],
       ),
     );
   }

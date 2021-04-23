@@ -71,7 +71,7 @@ class User extends Equatable {
       pengalamanKerja: data['pengalaman_kerja'],
       namaJabatan: data['nama_jabatan'],
       status: data['status_approve'],
-      picturePath: data['foto']);
+      picturePath: 'https://sp-adm.com/img/users/' + data['foto']);
   @override
   List<Object> get props => [
         id,

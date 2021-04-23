@@ -3,10 +3,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:sp_adm_new/cubit/cubit.dart';
+import 'package:sp_adm_new/models/models.dart';
 import 'package:sp_adm_new/ui/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'example_json.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sp_adm_new/shared/shared.dart';
+import 'package:supercharged/supercharged.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 part 'login_page.dart';
 part 'home_page.dart';
@@ -18,7 +25,9 @@ part 'tabbar/training.dart';
 part 'tabbar/keuangan.dart';
 part 'playlist/playlist_home.dart';
 part 'playlist/playlist.dart';
-part 'merchandise/merchandise.dart';
+// part 'merchandise/merchandise_page.dart';
 part 'merchandise/product_home_page.dart';
 part 'merchandise/product_detail_page.dart';
 part 'register.dart';
+part 'main_page.dart';
+part 'tabbar/detail_program_page.dart';

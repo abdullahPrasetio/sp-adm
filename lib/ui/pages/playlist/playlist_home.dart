@@ -8,11 +8,17 @@ class PlaylistEdu extends StatefulWidget {
 class _PlaylistEduState extends State<PlaylistEdu> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        title: "Video",
-        home: new Playlist(
-          url: "https://sp-adm.herokuapp.com/",
-          title: "Video",
-        ));
+    return Playlist(
+      url: "https://sp-adm.herokuapp.com/",
+      title: "Video",
+    );
   }
 }
+
+// new MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         title: "Video",
+//         home: new Playlist(
+//           url: "https://sp-adm.herokuapp.com/",
+//           title: "Video",
+//         ));

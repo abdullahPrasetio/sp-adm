@@ -8,20 +8,121 @@ class Beranda extends StatefulWidget {
 class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
-    return ListView(padding: EdgeInsets.fromLTRB(5, 10, 5, 10), children: [
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
+    Card buildCard() {
+      return Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        color: Color(0xff3e318b),
+        elevation: 2,
         child: Row(
           children: [
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            buildCard(),
+            Container(
+                // width: 300,
+                // margin: EdgeInsets.all(0),
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Image.asset(
+                  "assets/images/uk-white.png",
+                  width: 180,
+                  height: 180,
+                  alignment: Alignment.centerLeft,
+                )),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                children: [
+                  Container(
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.only(left: 15),
+                      width: 130,
+                      height: 140,
+                      child: Text(
+                        "LOREM IPSUM NDFLW LNFLKSW SKFJE fWT SDGWRw ",
+                        style: TextStyle(fontSize: 20),
+                      ))
+                ],
+              ),
+            )
           ],
         ),
-      ),
+      );
+    }
+
+    return ListView(padding: EdgeInsets.fromLTRB(5, 10, 5, 10), children: [
+      SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: BlocBuilder<ProgramCubit, ProgramState>(builder: (_, state) {
+            if (state is ProgramLoaded) {
+              List<Program> programs = state.program;
+              return Row(
+                children: programs
+                    .map(
+                      (e) => Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        color: Color(0xff3e318b),
+                        elevation: 2,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 300,
+                              height: 180,
+                              // padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(e.image),
+                                    fit: BoxFit.cover),
+                              ),
+                              // width: 180,
+                              // height: 180,
+                              // padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              // child: Image.network(
+                              //   e.image,
+                              //   width: 180,
+                              //   height: 180,
+                              //   alignment: Alignment.centerLeft,
+                              // ),
+                            ),
+                            // Container(
+                            //   alignment: Alignment.centerLeft,
+                            //   child: Column(
+                            //     children: [
+                            //       Container(
+                            //         alignment: Alignment.centerLeft,
+                            //         padding: EdgeInsets.only(left: 15),
+                            //         width: 130,
+                            //         height: 140,
+                            //         child: Column(
+                            //           children: [
+                            //             Text(
+                            //               e.judul,
+                            //               style: TextStyle(
+                            //                   fontSize: 20,
+                            //                   color: Colors.white),
+                            //             ),
+                            //             Text(
+                            //               e.deskripsi,
+                            //               style: TextStyle(
+                            //                   fontSize: 14,
+                            //                   color: Colors.white),
+                            //             ),
+                            //           ],
+                            //         ),
+                            //       )
+                            //     ],
+                            //   ),
+                            // )
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+              );
+            }
+          })),
       Column(
         children: [
           // Card(
@@ -121,45 +222,5 @@ class _BerandaState extends State<Beranda> {
         ],
       ),
     ]);
-  }
-
-  Card buildCard() {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      color: Color(0xff3e318b),
-      elevation: 2,
-      child: Row(
-        children: [
-          Container(
-              // width: 300,
-              // margin: EdgeInsets.all(0),
-              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-              child: Image.asset(
-                "assets/images/uk-white.png",
-                width: 180,
-                height: 180,
-                alignment: Alignment.centerLeft,
-              )),
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(left: 15),
-                    width: 130,
-                    height: 140,
-                    child: Text(
-                      "LOREM IPSUM NDFLW LNFLKSW SKFJE fWT SDGWRw ",
-                      style: TextStyle(fontSize: 20),
-                    ))
-              ],
-            ),
-          )
-        ],
-      ),
-    );
   }
 }
