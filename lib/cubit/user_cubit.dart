@@ -16,4 +16,13 @@ class UserCubit extends Cubit<UserState> {
       emit(UserLoadingFailed(result.message));
     }
   }
+
+  Future<void> getProfile(String token) async {
+    ApiReturnValue result = await UserServices.getProfile(token);
+    if (result.value != null) {
+      emit(UserLoaded(result.value));
+    } else {
+      emit(UserLoadingFailed(result.message));
+    }
+  }
 }

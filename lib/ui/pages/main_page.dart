@@ -67,9 +67,7 @@ class _MainPageState extends State<MainPage> {
                     HomePage(),
                     PlaylistEdu(),
                     InputClaim(),
-                    Center(
-                      child: Text("Hello"),
-                    ),
+                    ComplaintPage(),
                     HomePageProduct(),
                   ],
                 )),

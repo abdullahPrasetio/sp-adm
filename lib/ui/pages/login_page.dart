@@ -101,8 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                                 emailController.text, passwordController.text);
                             UserState state = context.bloc<UserCubit>().state;
                             if (state is UserLoaded) {
-                              context.bloc<MerchandiseCubit>().getMerchandise();
-                              context.bloc<ProgramCubit>().getPrograms();
+                              await context
+                                  .bloc<MerchandiseCubit>()
+                                  .getMerchandise();
+                              await context.bloc<ProgramCubit>().getPrograms();
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return MainPage();

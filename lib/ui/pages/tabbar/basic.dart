@@ -1,5 +1,6 @@
 part of '../pages.dart';
 
+
 class Basic extends StatefulWidget {
   @override
   _BasicState createState() => _BasicState();

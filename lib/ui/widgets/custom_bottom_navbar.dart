@@ -69,7 +69,11 @@ class CustomBottomNavBar extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (onTap != null) {
-                onTap(3);
+                context.bloc<ComplaintCubit>().getComplaint();
+                ComplaintState state = context.bloc<ComplaintCubit>().state;
+                if (state is ComplaintLoaded) {
+                  onTap(3);
+                }
               }
             },
             child: Container(

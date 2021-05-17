@@ -4,3 +4,4 @@ part 'user.dart';
 part 'api_return_value.dart';
 part 'merchandise.dart';
 part 'program.dart';
+part 'complaint.dart';

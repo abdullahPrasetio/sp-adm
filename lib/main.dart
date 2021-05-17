@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => UserCubit()),
         BlocProvider(create: (_) => MerchandiseCubit()),
         BlocProvider(create: (_) => ProgramCubit()),
+        BlocProvider(create: (_) => ComplaintCubit()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginPage(),
+        home: SplashScreen(),
       ),
     );
   }

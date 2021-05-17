@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 
@@ -7,7 +8,6 @@ import 'package:sp_adm_new/cubit/cubit.dart';
 import 'package:sp_adm_new/models/models.dart';
 import 'package:sp_adm_new/ui/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'example_json.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sp_adm_new/shared/shared.dart';
 import 'package:supercharged/supercharged.dart';
@@ -31,3 +31,6 @@ part 'merchandise/product_detail_page.dart';
 part 'register.dart';
 part 'main_page.dart';
 part 'tabbar/detail_program_page.dart';
+part 'complaint_page.dart';
+
+part 'splash_screen_page.dart';
