@@ -163,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                                 showModalBottomSheet(
                                   context: context,
                                   builder: (context) => SingleChildScrollView(
-                                    child: RegisterController(),
+                                    child: RegisterModal(),
                                   ),
                                 );
                               },

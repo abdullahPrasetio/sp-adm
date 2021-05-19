@@ -25,4 +25,10 @@ class UserCubit extends Cubit<UserState> {
       emit(UserLoadingFailed(result.message));
     }
   }
+
+  Future<String> signUp(User user, String spadmKey) async {
+    ApiReturnValue result = await UserServices.signUp(user, spadmKey);
+
+    return result.message;
+  }
 }

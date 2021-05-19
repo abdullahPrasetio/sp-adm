@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         title: 'SP-ADM',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          canvasColor: Colors.transparent,
         ),
         home: SplashScreen(),
       ),

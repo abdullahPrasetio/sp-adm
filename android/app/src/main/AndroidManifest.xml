@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sp_adm_new">
+  <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="sp_adm_new"
+        android:label="SP ADM"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
