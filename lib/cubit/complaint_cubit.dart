@@ -17,4 +17,13 @@ class ComplaintCubit extends Cubit<ComplaintState> {
       emit(ComplaintLoadingFailed(result.message));
     }
   }
+
+  Future<String> addComplaint(
+      String type, String complaint, String spadmKey) async {
+    ApiReturnValue result =
+        await ComplaintService.addComplaint(type, complaint, spadmKey);
+    print(result.message);
+
+    return result.message;
+  }
 }

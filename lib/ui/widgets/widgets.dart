@@ -6,3 +6,4 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'sidebar.dart';
 part 'custom_bottom_navbar.dart';
 part 'custom_tabBar.dart';
+part 'add_pengaduan_modal.dart';

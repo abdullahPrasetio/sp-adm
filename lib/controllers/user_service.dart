@@ -26,6 +26,7 @@ class UserServices {
     User.token = data["data"]["access_token"];
     User value = User.fromJson(data['data']['user']);
     SharedPreferenceHelper().saveUserToken(data["data"]["access_token"]);
+    SharedPreferenceHelper().saveUserId(data["data"]["user"]["id"].toString());
     return ApiReturnValue(value: value);
   }
 
@@ -36,7 +37,7 @@ class UserServices {
     }
 
     String url = baseURLApi + 'profile';
-
+    print(Uri.parse(url));
     var response = await client.post(
       Uri.parse(url),
       headers: {
@@ -51,7 +52,8 @@ class UserServices {
       return ApiReturnValue(message: "Please try again");
     }
     var data = jsonDecode(response.body);
-
+    print(token);
+    print(data);
     User.token = token;
     User value = User.fromJson(data[0]);
     return ApiReturnValue(value: value);

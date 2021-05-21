@@ -72,6 +72,26 @@ class User extends Equatable {
       namaJabatan: data['nama_jabatan'],
       status: data['status_approve'],
       picturePath: 'https://sp-adm.com/img/users/' + data['foto']);
+
+  User copyWith(
+          {int id,
+          String name,
+          String email,
+          String alamat,
+          String npk,
+          String phoneNumber,
+          String status,
+          String picturePath}) =>
+      User(
+          id: id ?? this.id,
+          name: name ?? this.name,
+          email: email ?? this.email,
+          alamat: alamat ?? this.alamat,
+          npk: npk ?? this.npk,
+          phoneNumber: phoneNumber ?? this.phoneNumber,
+          status: status ?? this.status,
+          picturePath: picturePath ?? this.picturePath);
+
   @override
   List<Object> get props => [
         id,

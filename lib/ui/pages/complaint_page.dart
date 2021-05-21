@@ -17,6 +17,23 @@ class _ComplaintPageState extends State<ComplaintPage> {
           child: ListView(
             children: [
               Text("Pengaduan"),
+              RaisedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => SingleChildScrollView(
+                      child: AddComplaintModal(),
+                    ),
+                  );
+                },
+                padding: EdgeInsets.fromLTRB(65, 20, 65, 20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                    side: BorderSide(color: Color(0xff87CEEB))),
+                color: Color(0xff03203F),
+                textColor: Colors.white,
+                child: Text("Add Pengaduan", style: TextStyle(fontSize: 18)),
+              ),
               BlocBuilder<ComplaintCubit, ComplaintState>(
                 builder: (_, state) => (state is ComplaintLoaded)
                     ? Column(

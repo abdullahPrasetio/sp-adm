@@ -12,10 +12,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    getValidationData().whenComplete(() async {
-      Timer(Duration(seconds: 2),
-          () => Get.to(finalToken == null ? LoginPage() : MainPage()));
-    });
+    Timer(Duration(seconds: 2), () => Get.to(LoginPage()));
+    // getValidationData().whenComplete(() async {
+    //   Timer(Duration(seconds: 2),
+    //       () => Get.to(finalToken == null ? LoginPage() : MainPage()));
+    // });
 
     super.initState();
   }
