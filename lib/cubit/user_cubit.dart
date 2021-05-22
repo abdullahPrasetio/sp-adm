@@ -19,6 +19,7 @@ class UserCubit extends Cubit<UserState> {
 
   Future<void> getProfile(String token) async {
     ApiReturnValue result = await UserServices.getProfile(token);
+    print(result);
     if (result.value != null) {
       emit(UserLoaded(result.value));
     } else {

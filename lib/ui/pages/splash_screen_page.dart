@@ -12,11 +12,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(seconds: 2), () => Get.to(LoginPage()));
-    // getValidationData().whenComplete(() async {
-    //   Timer(Duration(seconds: 2),
-    //       () => Get.to(finalToken == null ? LoginPage() : MainPage()));
-    // });
+    // Timer(Duration(seconds: 2), () => Get.to(LoginPage()));
+    getValidationData().whenComplete(() async {
+      UserState state = context.bloc<UserCubit>().state;
+      Timer(Duration(seconds: 2),
+          () => Get.to(state is UserLoaded ? MainPage() : LoginPage()));
+      // Get.to(state is UserLoaded ? MainPage() : LoginPage()));
+    });
 
     super.initState();
   }
@@ -25,8 +27,14 @@ class _SplashScreenState extends State<SplashScreen> {
     var token = await SharedPreferenceHelper().getUserToken();
     if (token != null) {
       await context.bloc<UserCubit>().getProfile(token);
+      UserState state = context.bloc<UserCubit>().state;
+      if (state is UserLoaded) {
+        await context.bloc<MerchandiseCubit>().getMerchandise();
+        await context.bloc<ProgramCubit>().getPrograms();
+        await context.bloc<CompanyHistoryCubit>().getCompanyHistory();
+        await context.bloc<TrainingCubit>().getTrainings();
+      }
     }
-    print(token);
     setState(() {
       finalToken = token;
     });

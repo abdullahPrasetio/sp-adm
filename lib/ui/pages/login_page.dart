@@ -105,6 +105,12 @@ class _LoginPageState extends State<LoginPage> {
                                   .bloc<MerchandiseCubit>()
                                   .getMerchandise();
                               await context.bloc<ProgramCubit>().getPrograms();
+                              await context
+                                  .bloc<CompanyHistoryCubit>()
+                                  .getCompanyHistory();
+                              await context
+                                  .bloc<TrainingCubit>()
+                                  .getTrainings();
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return MainPage();

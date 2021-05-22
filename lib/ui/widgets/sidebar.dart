@@ -13,11 +13,22 @@ class NavDrawer extends StatelessWidget {
                 child: Container(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
-                    child: Image.network(
-                        (context.bloc<UserCubit>().state as UserLoaded)
-                            .user
-                            .picturePath,
-                        fit: BoxFit.cover),
+                    // child: Image.network(
+                    //     (context.bloc<UserCubit>().state as UserLoaded)
+                    //         .user
+                    //         .picturePath,
+                    //     fit: BoxFit.cover, errorBuilder: (BuildContext context,
+                    //         Object exception, StackTrace stackTrace) {
+                    //   return Text('Your error widget...');
+                    // }),
+                    child: CachedNetworkImage(
+                      imageUrl: (context.bloc<UserCubit>().state as UserLoaded)
+                          .user
+                          .picturePath,
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
                   ),
                   margin: EdgeInsets.fromLTRB(0, 50, 0, 30),
                   height: 100,

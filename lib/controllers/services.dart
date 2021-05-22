@@ -9,6 +9,8 @@ part 'user_service.dart';
 part 'merchandise_services.dart';
 part 'program_service.dart';
 part 'complaint_service.dart';
+part 'company_services.dart';
+part 'training_services.dart';
 
 String baseURL = "https://sp-adm.com/";
 String baseURLApi = baseURL + 'api/';

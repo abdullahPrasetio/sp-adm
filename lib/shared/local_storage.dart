@@ -37,7 +37,7 @@ class SharedPreferenceHelper {
 
   Future<bool> saveUserNoAnggota(String getUserNoAnggota) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(userId, getUserNoAnggota);
+    return prefs.setString(userNoAnggota, getUserNoAnggota);
   }
 
   Future<bool> saveUserNpk(String getUserNpk) async {
@@ -151,5 +151,110 @@ class SharedPreferenceHelper {
   Future<String> getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString(userId);
+  }
+
+  Future<String> getUserNoAnggota() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userId);
+  }
+
+  Future<String> getUserNpk() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userNpk);
+  }
+
+  Future<String> getUserNamaPlant() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userNamaPlant);
+  }
+
+  Future<String> getUserNamaDept() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userNamaDept);
+  }
+
+  Future<String> getUserName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userName);
+  }
+
+  Future<String> getUserTempatLahir() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userTempatLahir);
+  }
+
+  Future<String> getUserTanggalLahir() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userTanggalLahir);
+  }
+
+  Future<String> getUserJenisKelamin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userJenisKelamin);
+  }
+
+  Future<String> getUserAlamat() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userAlamat);
+  }
+
+  Future<String> getUserPekerjaan() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPekerjaan);
+  }
+
+  Future<String> getUserPhoneNumber() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPhoneNumber);
+  }
+
+  Future<String> getUserAgama() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userAgama);
+  }
+
+  Future<String> getUserStatusPernikahan() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userStatusPernikahan);
+  }
+
+  Future<String> getUserPendidikan() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPendidikan);
+  }
+
+  Future<String> getUserGolonganDarah() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userGolonganDarah);
+  }
+
+  Future<String> getUserEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userEmail);
+  }
+
+  Future<String> getUserPengalamanOrganisasi() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPengalamanOrganisasi);
+  }
+
+  Future<String> getUserPengalamanKerja() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPengalamanKerja);
+  }
+
+  Future<String> getUserNamaJabatan() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userNamaJabatan);
+  }
+
+  Future<String> getUserStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userStatus);
+  }
+
+  Future<String> getUserPicturePath() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(userPicturePath);
   }
 }
