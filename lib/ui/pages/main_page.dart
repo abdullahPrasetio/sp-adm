@@ -42,9 +42,9 @@ class _MainPageState extends State<MainPage> {
                 ),
                 backgroundColor: Colors.white,
                 title: Image.asset(
-                  "assets/images/Appbar.png",
+                  "assets/images/Appbar.jpeg",
                   width: 300,
-                  height: 200,
+                  height: 250,
                 )),
             body: Stack(
               children: [

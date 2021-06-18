@@ -8,12 +8,29 @@ class Training extends StatefulWidget {
 class _TrainingState extends State<Training> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
       children: [
-        Container(
-          child: Center(child: Text("Training")),
-        ),
+        BlocBuilder<TrainingCubit, TrainingState>(
+          builder: (_, state) => (state is TrainingLoaded)
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: state.trainings
+                      .map((e) => Container(
+                            child: Column(
+                              children: [
+                                Text(e.name),
+                                Text(e.date),
+                                Text(e.place),
+                                SizedBox(height: 20),
+                              ],
+                            ),
+                          ))
+                      .toList(),
+                )
+              : SizedBox(
+                  height: 30,
+                ),
+        )
       ],
     );
   }
