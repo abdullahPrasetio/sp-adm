@@ -7,3 +7,4 @@ part 'program.dart';
 part 'complaint.dart';
 part 'company_history.dart';
 part 'training.dart';
+part 'forkom.dart';

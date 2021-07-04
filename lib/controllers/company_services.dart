@@ -12,7 +12,6 @@ class CompanyServices {
       'Authorization': 'Bearer ${User.token}',
     });
 
-    print(response.body);
     if (response.statusCode != 200) {
       return ApiReturnValue(message: "Please try again");
     }
