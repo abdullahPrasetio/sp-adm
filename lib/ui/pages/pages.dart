@@ -15,6 +15,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 part 'login_page.dart';
 part 'home_page.dart';
 part 'claim/input_claim_page.dart';

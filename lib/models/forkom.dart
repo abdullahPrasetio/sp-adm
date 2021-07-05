@@ -7,7 +7,7 @@ class Forkom extends Equatable {
 
   Forkom({this.id, this.judul, this.file});
   factory Forkom.fromJson(Map<String, dynamic> data) =>
-      Forkom(id: data['id'], judul: data['judul'], file: data['mom_file']);
+      Forkom(id: data['id'], judul: data['judul'], file: 'https://sp-adm.com/mom_forkom/' +data['mom_file']);
   @override
   // TODO: implement props
   List<Object> get props => [id, judul, file];

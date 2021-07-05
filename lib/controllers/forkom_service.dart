@@ -18,6 +18,7 @@ class ForkomService {
       return ApiReturnValue(message: "Please try again");
     }
     var data = jsonDecode(response.body);
+    print(data);
     List<Forkom> forkom =
         (data as Iterable).map((e) => Forkom.fromJson(e)).toList();
     return ApiReturnValue(value: forkom);
